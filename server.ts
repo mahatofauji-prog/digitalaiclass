@@ -1086,9 +1086,6 @@ For lesson concepts in ${courseName || 'AI Fundamentals'}, focus on:
 
 // --- VITE MIDDLEWARE AND PRODUCTION STATIC HANDLER ---
 
-async function startServer() {
-  
-
 app.get('/api/courses/id/:id', (req: Request, res: Response) => {
   const { id } = req.params;
   const course = DB.getCourses().find(c => c.id === id);
@@ -1188,7 +1185,7 @@ app.get('/api/lessons/:lessonId/stream', (req: Request, res: Response) => {
   return res.status(403).json({ error: 'Access denied. Please purchase the course.' });
 });
 
-
+async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -1198,14 +1195,20 @@ app.get('/api/lessons/:lessonId/stream', (req: Request, res: Response) => {
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
+    if (!process.env.VERCEL) {
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
+    }
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
+  if (!process.env.VERCEL) {
+    app.listen(PORT, '0.0.0.0', () => {
     console.log(`[Digital AI Class] full-stack server listening on host 0.0.0.0 and port ${PORT}`);
   });
+  }
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+}
