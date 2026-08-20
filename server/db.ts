@@ -9,7 +9,7 @@ import {
   User, Course, CourseSection, Lesson, Enrollment, LessonProgress, 
   Subscription, SubscriptionPlan, Payment, Coupon, Certificate, 
   Notification, CourseReview, WishlistItem 
-} from '../src/types';
+} from '../src/types.js';
 
 // Database JSON File Path
 const DB_PATH = path.join(process.cwd(), 'server', 'db.json');

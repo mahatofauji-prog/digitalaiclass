@@ -7,9 +7,9 @@ import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import crypto from 'crypto';
 
-import { DB } from './server/db';
+import { DB } from './server/db.js';
 import { GoogleGenAI } from '@google/genai';
-import { User, Course, Coupon, Payment, Subscription, Enrollment, Certificate, Notification, CourseSection, Lesson } from './src/types';
+import { User, Course, Coupon, Payment, Subscription, Enrollment, Certificate, Notification, CourseSection, Lesson } from './src/types.js';
 
 export const app = express();
 const PORT = 3000;
