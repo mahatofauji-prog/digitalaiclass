@@ -1,3 +1,2 @@
-// Fix TypeScript import extension issue for vercel serverless
-import { app } from '../server.js';
+import { app } from '../server';
 export default app;
