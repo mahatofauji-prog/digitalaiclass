@@ -1212,3 +1212,6 @@ async function startServer() {
 if (!process.env.VERCEL) {
   startServer();
 }
+
+// Export default for Vercel
+export default app;
