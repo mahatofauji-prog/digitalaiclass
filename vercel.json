@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "api/debug.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "api/test.ts",
       "use": "@vercel/node"
     },
@@ -21,6 +25,10 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/api/debug",
+      "destination": "/api/debug.js"
+    },
     {
       "source": "/api/test",
       "destination": "/api/test.ts"
