@@ -1,4 +1,3 @@
-import express from 'express';
-import { app } from '../server.js'; // You'll need to export app from server.ts
+import { app } from '../server';
 
 export default app;
