@@ -1,3 +1,3 @@
 export default function handler(req: any, res: any) {
-  res.json({ message: "Hello from test route" });
+  res.status(200).json({ message: "Hello from TS test route" });
 }
