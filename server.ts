@@ -11,7 +11,7 @@ import { DB } from './server/db';
 import { GoogleGenAI } from '@google/genai';
 import { User, Course, Coupon, Payment, Subscription, Enrollment, Certificate, Notification, CourseSection, Lesson } from './src/types';
 
-const app = express();
+export const app = express();
 const PORT = 3000;
 
 app.use(express.json());
