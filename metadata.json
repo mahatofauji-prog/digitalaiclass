@@ -1,0 +1,8 @@
+{
+  "name": "Digital AI Class",
+  "description": "Premium online learning management system (LMS) specializing in expert structured courses, certified learning, and interactive AI study tools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
