@@ -6,7 +6,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import crypto from 'crypto';
-import { createServer as createViteServer } from 'vite';
+
 import { DB } from './server/db';
 import { GoogleGenAI } from '@google/genai';
 import { User, Course, Coupon, Payment, Subscription, Enrollment, Certificate, Notification, CourseSection, Lesson } from './src/types';
@@ -1187,7 +1187,8 @@ app.get('/api/lessons/:lessonId/stream', (req: Request, res: Response) => {
 
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
-    const vite = await createViteServer({
+    const { createServer } = await import('vite');
+    const vite = await createServer({
       server: { middlewareMode: true },
       appType: 'spa',
     });
